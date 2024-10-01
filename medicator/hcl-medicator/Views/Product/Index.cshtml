@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Product Index";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Product Management</h2>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 text-center">
+            <div class="btn-group" role="group" aria-label="Product Actions">
+                @Html.ActionLink("Add New Product", "AddProduct", "Product", null, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("View All Products", "GetAllProducts", "Product", null, new { @class = "btn btn-outline-secondary" })
+            </div>
+        </div>
+    </div>
+
+</div>

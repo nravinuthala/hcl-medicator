@@ -1,0 +1,62 @@
+﻿@model IEnumerable<hcl_medicator.Models.OrderModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Order List</h2>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.First().OrderID)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().Quantity)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().ProductName)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().TotalPrice)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().Address)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().Status)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().SellerID)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.OrderID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerID)</td>
+                            <td>
+                                @Html.ActionLink("Cancel", "CancelOrder", new { orderId = item.OrderID }, new { @class = "btn btn-outline-danger btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 text-end">
+            @ViewBag.Cancel
+            @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+            {
+                <input type="submit" value="Logout" class="btn btn-outline-secondary" />
+            }
+        </div>
+    </div>
+</div>

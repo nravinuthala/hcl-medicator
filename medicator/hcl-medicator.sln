@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hcl-medicator", "hcl-medicator\hcl-medicator.csproj", "{D6466A8D-265B-4792-A603-665F8BF0610D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{59D63523-317B-4C55-86BD-7EBB675BA124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6466A8D-265B-4792-A603-665F8BF0610D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6466A8D-265B-4792-A603-665F8BF0610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6466A8D-265B-4792-A603-665F8BF0610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6466A8D-265B-4792-A603-665F8BF0610D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D63523-317B-4C55-86BD-7EBB675BA124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D63523-317B-4C55-86BD-7EBB675BA124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D63523-317B-4C55-86BD-7EBB675BA124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D63523-317B-4C55-86BD-7EBB675BA124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3D367E0-3FF1-46C8-AD2B-6D1EF70CB8F3}
+	EndGlobalSection
+EndGlobal

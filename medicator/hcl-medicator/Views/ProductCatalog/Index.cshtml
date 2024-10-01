@@ -1,0 +1,85 @@
+﻿@model IEnumerable<hcl_medicator.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Get All Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Our Products</h2>
+    @using (Html.BeginForm("Index", "ProductCatalog", FormMethod.Get, new { @class = "row g-3" }))
+    {
+        <div class="col-auto">
+            <input type="text" class="form-control" name="search" placeholder="Search products..." style="width: auto;">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-warning mb-3">Search</button>
+        </div>
+    }
+
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <!-- Product Image Placeholder -->
+                    <img src="path/to/dummy-image.jpg" alt="@Html.DisplayFor(modelItem => item.Name)" class="card-img-top">
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="@Url.Action("Details", "ProductCatalog", new { id = item.ProductID })">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </a>
+                        </h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="card-text"><strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price) Rs</p>
+                        <!-- More product details -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            @using (Html.BeginForm("AddToCart", "ProductCatalog", FormMethod.Post, new { @class = "w-100" }))
+                            {
+                                <div class="col-8">
+                                    <div class="input-group quantity-group">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity('@item.ProductID')">-</button>
+                                        </div>
+                                        <input type="text" class="form-control" id="quantity-@item.ProductID" name="quantity" value="1" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity('@item.ProductID')">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <input type="hidden" name="productId" value="@item.ProductID" />
+                                    <input type="submit" value="Add to Cart" class="btn btn-outline-primary btn-sm" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function increaseQuantity(productId) {
+        var quantityInput = document.getElementById('quantity-' + productId);
+        var currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    }
+
+    function decreaseQuantity(productId) {
+        var quantityInput = document.getElementById('quantity-' + productId);
+        var currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    }
+</script>

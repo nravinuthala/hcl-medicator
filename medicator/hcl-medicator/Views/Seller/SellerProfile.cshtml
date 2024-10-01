@@ -1,0 +1,46 @@
+﻿@model hcl_medicator.Models.UserModel
+
+@{
+    ViewBag.Title = "Customer Profile";
+    Layout = "~/Views/Seller/_Layout.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h2 class="text-center">User Profile</h2>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Username
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        Email
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        User Type
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.UserType)
+                    </dd>
+                </dl>
+                <div class="text-center mt-4">
+                    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Back to List", "ViewAll", null, new { @class = "btn btn-secondary ml-2" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

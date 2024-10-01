@@ -1,0 +1,43 @@
+﻿@model hcl_medicator.Models.PrescriptionModel
+
+@{
+    ViewBag.Title = "Delete Prescription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="fw-bold">Delete Prescription</h2>
+    <div class="alert alert-danger" role="alert">
+        <h3>Are you sure you want to delete this prescription?</h3>
+    </div>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title fw-bold">Prescription Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Prescription ID</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PrescriptionID)</dd>
+
+                <dt class="col-sm-4">User ID</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.UserID)</dd>
+
+                <dt class="col-sm-4">File Path</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.FilePath)</dd>
+
+                <dt class="col-sm-4">Text Content</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.TextContent)</dd>
+            </dl>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group mt-3 text-center">
+            <input type="submit" value="Delete" class="btn btn-outline-danger" />
+            @Html.ActionLink("Back to List", "ViewAll", null, new { @class = "btn btn-outline-secondary ml-2" })
+        </div>
+    }
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6460631c04b245168a7dad758754fd68" Name="Diagram1">
+        <EntityTypeShape EntityType="MedicatorDatabaseModel.Order" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicatorDatabaseModel.Prescription" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicatorDatabaseModel.Product" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicatorDatabaseModel.ShoppingCart" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicatorDatabaseModel.User" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__Order__CartID__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__Order__UserID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__Prescript__UserI__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__Products__Seller__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__ShoppingC__Produ__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicatorDatabaseModel.FK__ShoppingC__UserI__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

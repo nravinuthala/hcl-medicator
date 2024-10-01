@@ -1,0 +1,53 @@
+﻿@model hcl_medicator.Models.UserModel
+
+@{
+    ViewBag.Title = "Customer Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm p-4">
+                <h2 class="text-center fw-bold">User Profile</h2>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Username
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        Email
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        User Type
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.UserType)
+                    </dd>
+                    <dt class="col-sm-4 fw-bold">
+                        Address
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                </dl>
+                <div class="text-center mt-4">
+                    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }, new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary ml-2" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

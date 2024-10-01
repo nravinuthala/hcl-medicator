@@ -1,0 +1,21 @@
+﻿@model hcl_medicator.Models.UserModel
+
+@{
+    ViewBag.Title = "Inventory Manager";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Product Management</h2>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 text-center">
+            <div class="btn-group" role="group" aria-label="User Actions">
+                @Html.ActionLink("Signup", "Signup", "Account", null, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-outline-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<hcl_medicator.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Get All Products";
+    Layout = "~/Views/Seller/_Layout.cshtml";
+}
+
+<!-- Latest Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Our Products</h2>
+    <div class="text-end mb-3">
+        @Html.ActionLink("Create New", "AddProduct", null, new { @class = "btn btn-outline-warning" })
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <!--<img class="card-img-top" src="placeholder-image-url" alt="Product Image">-->
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="card-text"><strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price)</p>
+                        <!-- More product details -->
+                    </div>
+                    <div class="card-footer">
+
+                        @Html.ActionLink("Delete", "DeleteProduct", new { id = item.ProductID }, new { @class = "btn btn-outline-danger btn-sm" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="text-center mt-3">
+        @using (Html.BeginForm("Logout", "Seller", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            <input type="submit" value="Logout" class="btn btn-outline-secondary" />
+        }
+    </div>
+</div>
